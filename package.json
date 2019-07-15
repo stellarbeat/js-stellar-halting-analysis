@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "npm run build",
-    "prepublish": "yarn run build",
+    "prepublish": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "build": "tsc --declaration",

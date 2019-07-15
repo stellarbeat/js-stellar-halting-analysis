@@ -1,5 +1,5 @@
 {
-  "name": "stellar-halting-analysis",
+  "name": "@stellar/halting-analysis",
   "description": "Run halting analysis algorithms on stellar quorums",
   "version": "1.0.0",
   "main": "lib/index.js",

@@ -6,9 +6,6 @@
   "types": "lib/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "prepare": "npm run build",
-    "prepublish": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
     "build": "tsc --declaration",
     "test": "jest --watch",
     "test:ci": "jest",

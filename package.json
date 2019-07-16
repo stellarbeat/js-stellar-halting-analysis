@@ -1,7 +1,7 @@
 {
   "name": "@stellar/halting-analysis",
   "description": "Run halting analysis algorithms on stellar quorums",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",

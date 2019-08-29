@@ -63,17 +63,21 @@ export function createAnalysisStructure(
     };
     entryCache.set(entry.name, entry);
     if (node.qset) {
-      entry.quorumSet.threshold = node.qset.t;
-      generateQuorumset(node.qset, entry);
+      generateQuorumset(node.qset, entry, entry.quorumSet);
     } else if (node.status === "missing") {
       entry.live = false;
     } else {
       throw new Error("Bad state, No Qset on non-missing node " + node.node);
     }
-    function generateQuorumset(set: NetworkQuorumSet, entry: AnalysisNode) {
+    function generateQuorumset(set: NetworkQuorumSet, entry: AnalysisNode, analysisQuorumSet: AnalysisQuorumSet) {
       set.v.forEach(dependent => {
+        analysisQuorumSet.threshold = set.t;
         if (isNested(dependent)) {
-          generateQuorumset(dependent, entry);
+          let nestedAnalysisQuorumSet = {
+            threshold: 0, dependencies: []
+          };
+          analysisQuorumSet.dependencies.push(nestedAnalysisQuorumSet);
+          generateQuorumset(dependent, entry, nestedAnalysisQuorumSet);
         } else {
           let dependentName = dependent;
           const dependentNetworkNode = nodes.find(
@@ -85,7 +89,7 @@ export function createAnalysisStructure(
             );
           }
           const depNode = generateNode(dependentNetworkNode);
-          entry.quorumSet.dependencies.push(depNode.name);
+          analysisQuorumSet.dependencies.push(depNode.name);
           depNode.dependentsNames.push(entry.name);
         }
       });

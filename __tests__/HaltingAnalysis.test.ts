@@ -53,7 +53,7 @@ describe("halting analysis", () => {
 
   it("must return failures for complicated transitive quorum sets", () => {
     const failureCases = haltingAnalysis(complexSubquorum);
-    expect(failureCases).toHaveLength(1);
+    expect(failureCases).toHaveLength(3); // {"g"},{"e"},{"f"}
     expect(failureCases[0].vulnerableNodes[0]).toHaveProperty("node", "g");
   });
 

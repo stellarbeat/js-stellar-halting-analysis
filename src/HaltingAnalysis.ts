@@ -69,12 +69,17 @@ export function createAnalysisStructure(
     } else {
       throw new Error("Bad state, No Qset on non-missing node " + node.node);
     }
-    function generateQuorumset(set: NetworkQuorumSet, entry: AnalysisNode, analysisQuorumSet: AnalysisQuorumSet) {
+    function generateQuorumset(
+      set: NetworkQuorumSet,
+      entry: AnalysisNode,
+      analysisQuorumSet: AnalysisQuorumSet
+    ) {
       set.v.forEach(dependent => {
         analysisQuorumSet.threshold = set.t;
         if (isNested(dependent)) {
           let nestedAnalysisQuorumSet = {
-            threshold: 0, dependencies: []
+            threshold: 0,
+            dependencies: []
           };
           analysisQuorumSet.dependencies.push(nestedAnalysisQuorumSet);
           generateQuorumset(dependent, entry, nestedAnalysisQuorumSet);

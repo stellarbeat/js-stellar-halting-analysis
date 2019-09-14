@@ -108,7 +108,7 @@ export function createAnalysisStructure(
 
 // Reset any analysis data between passes
 function reset(nodes: AnalysisNode[]) {
-  nodes.forEach(n => (n.live = true));
+  nodes.forEach(n => n.status !== 'missing' ? n.live = true : n.live = false);
 }
 
 /*

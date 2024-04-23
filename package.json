@@ -1,5 +1,5 @@
 {
-  "name": "@stellar/halting-analysis",
+  "name": "@stellarbeat/stellar-halting-analysis",
   "description": "Run halting analysis algorithms on stellar quorums",
   "version": "1.1.1",
   "main": "lib/index.js",
@@ -20,12 +20,13 @@
     "stellar"
   ],
   "devDependencies": {
-    "@types/jest": "^24.0.15",
-    "jest": "^24.8.0",
+    "@types/jest": "^29.0.0",
+    "jest": "^29.7.0",
     "prettier": "^1.18.2",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^29.1.2",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.3"
-  }
+    "typescript": "^5.4.3"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
